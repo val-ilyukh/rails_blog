@@ -1,0 +1,16 @@
+<div class="container">
+<h1 class="m-5">Hello, Rails!</h1>
+<ul>
+  <% @articles.each do |article| %>
+    <li>
+    	<div class="row">
+    		<div class="col"> <%= link_to article.title, article %></div>
+    		<div class="col"><%= link_to "Destroy", article_path(article),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %></div>
+    	</div>
+    </li>
+  <% end %>
+</ul>
+<%= link_to "New Article", new_article_path %>
+</div>

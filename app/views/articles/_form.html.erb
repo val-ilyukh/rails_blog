@@ -1,0 +1,25 @@
+<div class="container">
+
+<%= form_with model: @article do |form| %>
+  <%= form.hidden_field :id %>
+  <div class="w-100 my-2">
+    <%= form.label :title, 'Название статьи', class: "w-100 d-block" %>
+    <%= form.text_field :title, class: "w-100 d-block" %>
+    <% @article.errors.messages_for(:title).each do |message| %>
+      <div class="alert alert-danger"><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="w-100 my-2">
+    <%= form.label :body, 'Текст статьи', class: "w-100 d-block" %>
+    <%= form.text_area :body, class: "w-100 d-block" %>
+    <% @article.errors.messages_for(:body).each do |message| %>
+      <div class="alert alert-danger"><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+</div>
