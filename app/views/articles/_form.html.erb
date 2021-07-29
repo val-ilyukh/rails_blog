@@ -17,6 +17,13 @@
       <div class="alert alert-danger"><%= message %></div>
     <% end %>
   </div>
+  <div class="w-100 my-2">
+    <%= form.label :picture, 'картинка для статьи', class: "w-100 d-block" %>
+    <%= form.file_field :picture, class: "w-100 d-block" %>
+    <% @article.errors.messages_for(:picture).each do |message| %>
+      <div class="alert alert-danger"><%= message %></div>
+    <% end %>
+  </div>
 
   <div>
     <%= form.submit %>
