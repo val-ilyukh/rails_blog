@@ -1,0 +1,22 @@
+<div class="container">
+<%= form_with model: [ @article, @article.comments.build ] do |form| %>
+  <p>
+    <%= form.label :commenter %><br>
+    <%= form.text_field :commenter %>
+  </p>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+  <div class="w-100 my-2"> 
+    <%= form.label :status, 'Статус публикации комментария', class: "w-100 d-block" %><br>
+    <%= form.select :status, ['public', 'private', 'archived'], selected: 'public', class: "w-100 d-block" %>
+    <% @article.errors.messages_for(:status).each do |message| %>
+      <div class="alert alert-danger"><%= message %></div>
+    <% end %>
+  </div>
+<% end %>
+</div>
